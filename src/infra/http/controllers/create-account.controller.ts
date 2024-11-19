@@ -50,6 +50,7 @@ export class CreateAccountController {
         name,
         email,
         password: hashedPassword,
+        role: 'STUDENT',
       },
     });
   }
