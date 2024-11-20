@@ -39,3 +39,9 @@ Authorization: Bearer {{authToken}}
 GET {{baseUrl}}/questions?page=1
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
+
+###
+# @name get_questions_by_slug
+GET {{baseUrl}}/questions/nova-pergunta
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
