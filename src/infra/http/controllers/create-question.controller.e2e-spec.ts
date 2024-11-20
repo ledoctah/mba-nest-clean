@@ -30,6 +30,7 @@ describe('Create question (E2E)', () => {
         name: 'John Doe',
         email: 'johndoe@example.com',
         password: '123456',
+        role: 'STUDENT',
       },
     });
 

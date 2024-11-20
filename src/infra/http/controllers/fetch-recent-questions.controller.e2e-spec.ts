@@ -30,6 +30,7 @@ describe('Fetch recent questions (E2E)', () => {
         name: 'John Doe',
         email: 'johndoe@example.com',
         password: '123456',
+        role: 'STUDENT',
       },
     });
 
