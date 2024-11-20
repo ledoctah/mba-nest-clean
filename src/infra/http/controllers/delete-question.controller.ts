@@ -2,14 +2,10 @@ import {
   BadRequestException,
   Controller,
   Delete,
-  ForbiddenException,
   HttpCode,
-  NotFoundException,
   Param,
 } from '@nestjs/common';
 
-import { NotAllowedError } from '@/core/errors/not-allowed-error';
-import { ResourceNotFoundError } from '@/core/errors/resource-not-found-error';
 import { DeleteQuestionUseCase } from '@/domain/forum/application/use-cases/delete-question.use-case';
 import { CurrentUser } from '@/infra/auth/current-user-decorator';
 import { UserPayload } from '@/infra/auth/jwt.strategy';
@@ -32,14 +28,7 @@ export class DeleteQuestionController {
     });
 
     if (result.isLeft()) {
-      switch (result.value.constructor) {
-        case ResourceNotFoundError:
-          throw new NotFoundException();
-        case NotAllowedError:
-          throw new ForbiddenException();
-        default:
-          throw new BadRequestException();
-      }
+      throw new BadRequestException();
     }
   }
 }
