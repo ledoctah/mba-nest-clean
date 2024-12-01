@@ -10,7 +10,7 @@ import { z } from 'zod';
 import { FetchQuestionCommentsUseCase } from '@/domain/forum/application/use-cases/fetch-question-comments.use-case';
 
 import { ZodValidationPipe } from '../pipes/zod-validation-pipe';
-import { CommentPresenter } from '../presenters/comment.presenter';
+import { CommentWithAuthorPresenter } from '../presenters/comment-with-author-presenter';
 
 const pageQueryParamSchema = z
   .string()
@@ -44,7 +44,7 @@ export class FetchQuestionCommentsController {
     const questionComments = result.value.questionComments;
 
     return {
-      comments: questionComments.map(CommentPresenter.toHTTP),
+      comments: questionComments.map(CommentWithAuthorPresenter.toHTTP),
     };
   }
 }
